@@ -1,5 +1,4 @@
 import sys
-import time
 
 
 def count_divisible_paths(m, k):
