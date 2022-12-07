@@ -27,7 +27,7 @@ def count_divisible_paths(m, k):
     
     return sum([l[-1] for l in dp]) % 998244353
 
-@timer
+#@timer
 def main():
     casos = int(sys.stdin.readline())
     for _ in range(casos):
