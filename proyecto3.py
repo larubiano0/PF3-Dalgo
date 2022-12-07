@@ -1,19 +1,18 @@
 import sys
+from math import ceil
 
 
 def count_divisible_paths(m, k):
     k_multiples = 0
     dp = [[1] + [0] * m]
-    i = 0
     numero_de_caminos = 0
-    while k_multiples + k <= m:
+    for i in range(1, ceil(1 / 2 * (8 * m + 1)**0.5 - 1 / 2)):
         dp += [[0] * (m + 1)]
         for j in range(k_multiples + k, m + 1):
-            dp[i + 1][j] = (dp[i][j - k] + dp[i + 1][j - k]) % 998244353
-        numero_de_caminos = (numero_de_caminos + dp[i + 1][-1]) % 998244353
+            dp[i][j] = (dp[i - 1][j - k] + dp[i][j - k]) % 998244353
+        numero_de_caminos = (numero_de_caminos + dp[i][-1]) % 998244353
         k_multiples += k
         k += 1
-        i += 1
 
     return numero_de_caminos
 
