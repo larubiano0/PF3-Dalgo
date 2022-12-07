@@ -5,15 +5,17 @@ def count_divisible_paths(m, k):
     k_multiples = 0
     dp = [[1] + [0] * m]
     i = 0
+    numero_de_caminos = 0
     while k_multiples + k <= m:
         dp += [[0] * (m + 1)]
         for j in range(k_multiples + k, m + 1):
             dp[i + 1][j] = (dp[i][j - k] + dp[i + 1][j - k]) % 998244353
+        numero_de_caminos = (numero_de_caminos + dp[i + 1][m]) % 998244353
         k_multiples += k
         k += 1
         i += 1
 
-    return sum([l[-1] for l in dp]) % 998244353
+    return numero_de_caminos
 
 
 def main():
@@ -23,7 +25,7 @@ def main():
             m, k = map(int, sys.stdin.readline().split())
             numero_de_caminos = count_divisible_paths(m, k)
             print(numero_de_caminos)
-        except:
+        except BaseException:
             print(0)
 
 
