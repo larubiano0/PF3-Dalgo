@@ -1,5 +1,6 @@
 import sys
 import time
+from math import isqrt
 
 
 def timer(func):
@@ -14,7 +15,7 @@ def timer(func):
 
 def count_divisible_paths(m, k):
     k_multiples = 0
-    dp = [[1] + [0] * m] + [[0] * (m + 1) for _ in range(m)]
+    dp = [[1] + [0] * m] + [[0] * (m + 1) for _ in range(2*isqrt(m))]
     i = 0
     while k_multiples + k <= m:  
         for j in range(k_multiples + k, m + 1):  
@@ -23,7 +24,7 @@ def count_divisible_paths(m, k):
         k += 1  
         i += 1
     
-    return sum([l[-1] for l in dp]) #% 998244353
+    return sum([l[-1] for l in dp]) % 998244353
 
 @timer
 def main():
