@@ -24,7 +24,7 @@ def main():
             m, k = map(int, sys.stdin.readline().split())
             numero_de_caminos = count_divisible_paths(m, k)
             print(numero_de_caminos)
-        except BaseException:
+        except:
             print(0)
 
 
