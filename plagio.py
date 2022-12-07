@@ -14,9 +14,12 @@ def count_divisible_paths(m, k):
         k += 1 # advance in the sequence
     print(ans[-1]) # print answer
 
-count_divisible_paths(10000, 7)
-count_divisible_paths(25252, 11)
-count_divisible_paths(200000, 1)
-count_divisible_paths(200000, 2)
-
-
+#count_divisible_paths(10000, 7)
+#count_divisible_paths(25252, 11)
+#count_divisible_paths(200000, 1)
+#count_divisible_paths(200000, 2)
+count_divisible_paths(200000, 5)
+count_divisible_paths(200000, 25)
+count_divisible_paths(200000, 777)
+count_divisible_paths(200000, 1337)
+count_divisible_paths(200000, 200000)
